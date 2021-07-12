@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">Escucha</h2>
+                                    </div>
+                                                
+                <div class="art-postcontent art-postcontent-0 clearfix">
+                    <div width="33%">
+                    {% for n in Track10%}
+                        <h4>{{ n.Song_title }} -- {{n.Artista}}</h4><br>
+                    <audio controls><source src="/media/{{ n.file }}"type="audio/mpeg">
+                    </audio><br>
+                    <br>
+
+                        {% endfor %}
+                    </div>
+                    <div width="33%">
+                        {% for n in Track20%}
+                        <h4>{{ n.Song_title }} -- {{n.Artista}}</h4><br>
+                    <audio controls><source src="{{ n.file }}"type="audio/mpeg"></audio><br>
+                    <br>
+
+                        {% endfor %}
+                    </div>
+                    <div width="33%">
+                    {% for n in Track30%}
+                        <h4>{{ n.Song_title }} -- {{n.Artista}}</h4><br>
+                    <audio controls><source src="{{ n.file }}" type="audio/mpeg"></audio><br>
+                    <br>
+
+                        {% endfor %}
+                    </div>
+
+
+                </div><br>
+{%block ads%}
+<div class="art-content-layout">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-0" style="width: 100%" >
+        <h4>PUBLICIDAD</h4><br>
+        <iframe src="" width="100%"></iframe>
+
+    </div>
+    </div>
+</div>
+{%endblock%}
+</article></div>
+{% endblock %}

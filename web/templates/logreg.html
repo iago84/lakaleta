@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">LOGIN Y REGISTRO</h2>
+                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+
+<div id="modal" class="modalmask"style="color: #000;">
+<div id="modal" class="modalmask"style="color: #000;">
+     <div class="modalbox movedown">
+         <a href="#close" title="Close" class="close">X</a>
+         <h2>¡REGISTRATE!</h2>
+   <form id="formulario" method="post" action='/shop1/' >{% csrf_token %}
+    <table>
+     {{formulario.as_ul}}
+    </table>
+    <p>
+     <input type="submit" value="Registrar"/>
+    </p>
+   </form>
+     </div>
+ </div>
+ <div id="login" class="modalmask">
+     <div class="modalbox movedown">
+         <a href="#close" title="Close" class="close">X</a>
+         <h2>LOGIN</h2>
+   <form id="formulario" method="post" action=''style="color: #000;>{% csrf_token %}
+    <table>
+     {{formulario2.as_ul}}
+    </table>
+    <p>
+     <input type="submit" value="Ingresar"/>
+    </p>
+   </form>
+     </div>
+ </div>
+
+    <p>Estas conectado como: {{ usuario }}</p>
+    <button style="alignment: center" onclick="window.location.assign('/shop1')">Entra en la tienda</button>
+    <a href="/logout"><i class="fa fa-lock"></i> Cerrar Sesion</a>
+
+
+                </div>
+
+
+</article></div>
+{% endblock %}

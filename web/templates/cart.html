@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">Carrito</h2>
+                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+                </div>
+
+
+</article></div>
+
+{% endblock %}

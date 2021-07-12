@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">Tienda</h2>
+                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+
+ <div id="bienvenido" class="modalmask">
+     <div class="modalbox movedown">
+         <a href="#close" title="Close" class="close">X</a>
+         <h2>Bienvenid@</h2>
+         <p style="color: #000">Da gusto tenerte con nosotros.</p>
+
+     </div>
+ </div>
+
+
+
+
+                    <h4 style="display: inline-block;alignment: left">Categorias</h4>
+
+                    <ul>
+                {% for c in categories %}
+                        <li><a href="{{c.get_absolute_url}}">{{ c.name }}</a></li>
+                {% endfor %}
+                    </ul>
+                    <br>
+                    <br>
+                    <h4>Productos {% if category %}{{category.name}}{%endif%}</h4><br>
+
+
+                    {% for p in products %}
+                   
+                        <table style="display: inline-block;width: 30%;">
+                            <tr><td><h6 style="text-align: center;">
+                                <a href="{% url 'product_detail' p.category.slug p.pk p.slug %}">{{ p.name }}</a>
+                            </h6></td></tr>
+                            <tr><td>
+                            <img style="width: 100px;height: 100px;text-align: center;" src="{{ p.image.url }}">
+                            </td></tr>
+                            <tr><td>
+                            <p>{{ p.description }}</p>
+                            </td></tr>
+                            <tr><td>
+                            <p style="color:#F0B105">PVP:  {{ p.unit_price }} EUR</p>
+                            </td></tr>
+                            <tr><td>
+                            <p>STOCK:  {{ p.stock }}</p>
+                            </td></tr>
+                            <tr><td>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal">
+        <input type="hidden" name="cmd" value="_cart" />
+        <input type="hidden" name="add" value="1" />
+        <input type="hidden" name="business" value="iago.otero.84@gmail.com" />
+        <input type="hidden" name="item_name" value="{{ p.name }}" />
+        <input type="hidden" name="quantity" value="1" />
+        <input type="hidden" name="amount" value="{{ p.unit_price }}"/>
+        <input type="hidden" name="currency_code" value="EUR" />
+        <input type="hidden" name="shipping" value="4.00">
+        <input type="submit" name="submit" value="Add to cart" />
+    </form>
+ </td></tr>
+                            
+</table>
+
+                
+                    {% endfor %}
+
+    <script src="{% static 'minicart.js' %}"type="text/javascript"></script>
+<script>
+    paypal.minicart.render();
+    </script>
+
+                </div><br>
+
+{%block ads%}
+<div class="art-content-layout">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-0" style="width: 100%" >
+        <h4>PUBLICIDAD</h4><br>
+        <iframe src="" width="100%"></iframe>
+
+    </div>
+    </div>
+</div>
+{%endblock%}
+</article></div>
+{% endblock %}

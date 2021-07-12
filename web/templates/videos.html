@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">Videos</h2>
+                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+                    
+{% load embed_video_tags %}
+            {% for n in  videos %}
+                    <div id="video" style="width: 480px;height: 320px">
+
+                
+                <h5>{{ n.titulo }}</h5><br>
+{% video n.link '480x320' %}</div><br><br>
+{% endfor %}
+        </div>
+
+
+</article></div>
+{% endblock %}

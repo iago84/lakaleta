@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">Artista</h2>
+                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+                    {% for a in Art %}
+                    <h2>{{ a }}</h2>
+                        <p>{{ a.descrip }}</p>
+                    {% endfor %}
+
+                    <h2>Albums</h2>
+                {% if Albums %}
+                    {% for album in Albums %}
+                    <ul>
+                            <li>{{ album.Album_title }} -- <a href="{{ album.zipfile.url}}">Descarga Aqui </a></li>
+                            
+                    </ul>
+                    {% endfor %}
+
+                {% endif %}
+
+
+</div>
+</article>
+    </div>
+{% endblock %}

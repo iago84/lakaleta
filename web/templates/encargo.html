@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+Encargo                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+
+
+
+
+                    <h3>Encargo de: {{ album.titulo }}</h3>
+
+
+
+                        <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="fieldWrapper" width="500px">
+            {{ form.as_ul }}
+            <input type="hidden" name="articulo" value="{{ album.titulo }}">
+            <input type="hidden" name="precio" value="{{ album.precio }}">
+        <p>PRECIO: </p>{{ album.precio }}
+        </div>
+    <br>
+        <input type="submit" value="Encargar">
+
+    </form>
+
+                </div>
+
+{%block ads%}
+<div class="art-content-layout">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-0" style="width: 50%" >
+        <h4>PUBLICIDAD</h4>
+    </div><div class="art-layout-cell layout-item-0" style="width: 50%" >
+        <h4>PUBLICIDAD</h4>
+    </div>
+    </div>
+</div>
+{%endblock%}
+</article>
+{% endblock %}

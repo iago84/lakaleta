@@ -1,0 +1,7 @@
+Django
+
+gunicorn
+
+pytz
+django-embed-video
+pillow

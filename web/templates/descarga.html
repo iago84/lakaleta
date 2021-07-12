@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">Descarga</h2>
+                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+                    {% for n in alb %}
+                    <h3>Su descarga <a href="{{ n.zipfile }}">AQUI</a></h3>
+                    {% endfor %}
+                    <h5>Publicidad</h5>
+                    <iframe width="500px" height="500px" align="center"></iframe>
+                </div>
+
+
+</article>
+{% endblock %}

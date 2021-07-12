@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">mixtapes</h2>
+                                    </div>
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+                    <h4>Descargas</h4>
+
+                    {% for album in all_albums %}
+                        {% if album.sell %}
+                            <p>{{album.Artist}} - {{ album.Album_title }}</p>
+                            <p style="color:#F0B105">PVP:  {{ album.precio }} EUR</p>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal">
+        <input type="hidden" name="cmd" value="_cart" />
+        <input type="hidden" name="add" value="1" />
+        <input type="hidden" name="business" value="iago.otero.84@gmail.com" />
+        <input type="hidden" name="item_name" value="{{ album.Album_title }} - {{album.Artist}}" />
+        <input type="hidden" name="quantity" value="1" />
+        <input type="hidden" name="amount" value="{{ album.precio }}"/>
+        <input type="hidden" name="currency_code" value="EUR" />
+        <input type="hidden" name="shipping" value="6.00">
+        <input type="submit" name="submit" value="Add to cart" />
+    </form>
+
+                         {% else %}
+                            <p>{{album.Artist}} - {{ album.Album_title }}</p>
+                                <button href="{{ album.zipfile.url}}">Descarga Gratis Aqui </button>
+                        {% endif %}
+
+                    {% endfor %}
+
+
+
+
+</div><br>
+{%block ads%}
+<div class="art-content-layout">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-0" style="width: 100%" >
+        <h4>PUBLICIDAD</h4><br>
+        <iframe src="" width="100%"></iframe>
+
+    </div>
+    </div>
+</div>
+{%endblock%}
+</article></div>
+{% endblock %}

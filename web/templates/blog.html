@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="art-layout-cell art-content">
+<article class="art-post art-article">
+{% for n in BlogEnt %}
+
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">{{ n.titulo }}</h2>
+                                    </div>
+                                                <div class="art-postheadericons art-metadata-icons">
+                    <span class="art-postdateicon">{{n.date}}</span>
+                     | <span class="art-postauthoricon"> <a href="#" title="Posts by Admin">Admin</a></span>
+                     | <span class="art-postprinticon"></span>
+                     | <span class="art-postediticon"></span>
+                                    </div>
+                <div class="art-postcontent art-postcontent-0 clearfix">
+<p>{{ n.cuerpo_noticia }}</p><br>
+{%if n.imagen %}
+<img src="{{ n.imagen.url }}" width="40%" ><br>
+{%endif%}
+{% if n.linkV %}
+                    {{ n.linkV }}<br>
+                    {% endif %}
+                </div>
+{% endfor %}
+</article></div>
+{% endblock %}
